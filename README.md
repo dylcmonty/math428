@@ -46,3 +46,68 @@ There is no required textbook. We list several good ones as references: 1) Numer
 * `https://www.evamariakiss.de/tutorial/matlab/`
 * `https://www.mathworks.com/help/matlab/getting-started-with-matlab.html`
 * `https://ocw.mit.edu/courses/2-086-numerical-computation-for-mechanical-engineers-fall-2014/pages/matlab tutorials/`
+
+
+---
+
+## Layout
+
+```markdown
+math428/
+  main.py
+  scripts/
+    hw01_p02.py
+    hw01_p03.py
+    hw01_p04.py
+  figures/
+    hw01_p02_error.png
+    hw01_p03_error.png
+    hw01_p04_error.png
+  materials/
+    notes/
+    example-code/
+    handouts/
+    homework/
+```
+
+## Repository Structure Note
+
+Example code and reference implementations provided by the instructor can be found in:
+
+- `materials/handouts/` (example MATLAB scripts and reference code)
+- `materials/notes/` (lecture notes)
+- `materials/homework/` (assigned homework problems)
+
+These materials are provided for reference and context alongside the Python implementations developed in this repository.
+
+## How main.py should behave (dispatcher, not logic)
+> See `main.py`
+
+## Script naming + a dispatcher
+* One script = one numerical experiment
+* Scripts are not libraries, they are executable artifacts
+* The grader expects to open a file and see everything relevant for that problem
+
+**Each script:**
+  Implements one method/problem
+  Produces its own plots
+  Prints its own summary / error metrics
+  Can be run standalone or via main.py
+This mirrors MATLAB’s “run this .m file” workflow almost exactly.
+
+*Each script must expose `def main(save=True):`*
+
+## This gives you:
+One terminal entry point
+Reproducible figure generation
+No ambiguity for grading
+
+### You do not want:
+
+CLI frameworks
+config files
+dependency injection
+class hierarchies
+
+main.py should not contain numerical methods.
+Its only job is to select and run scripts.
