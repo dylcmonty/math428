@@ -1,9 +1,23 @@
-from problems import nd1_compare_error_fd_bd_cd, ode1_euler
+# main.py
+import importlib
+
+SCRIPTS = {
+    "hw01_p01": "scripts.hw01_p01",
+    "hw01_p02": "scripts.hw01_p02",
+    "hw01_p03": "scripts.hw01_p03",
+}
 
 def main():
-    # Run each problem (and save their figures)
-    nd1_compare_error_fd_bd_cd.main(save=True)
-    ode1_euler.main(save=True)
+    print("Available problems:")
+    for k in SCRIPTS:
+        print(" ", k)
+
+    choice = input("Run which problem? ").strip()
+    if choice not in SCRIPTS:
+        raise ValueError("Unknown problem")
+
+    module = importlib.import_module(SCRIPTS[choice])
+    module.main(save=True)
 
 if __name__ == "__main__":
     main()
