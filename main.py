@@ -2,6 +2,9 @@
 # pip3 install numpy matplotlib scipy
 # sudo apt install python3 python3-pip
 import importlib
+import sys
+from scripts.hw01_p02 import main as hw01_p02_main
+from scripts.hw01_p03 import main as hw01_p03_main
 
 SCRIPTS = {
     "hw01_p01": "scripts.hw01_p01",
