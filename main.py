@@ -1,4 +1,6 @@
 # main.py
+# pip3 install numpy matplotlib scipy
+# sudo apt install python3 python3-pip
 import importlib
 
 SCRIPTS = {
